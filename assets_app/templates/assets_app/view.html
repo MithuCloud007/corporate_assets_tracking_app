@@ -1,0 +1,30 @@
+
+{% extends 'asset_tracking_app/base.html' %}
+{% load static %}
+{% block content %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Serial Number</th>
+        <th scope="col">Asset Type</th>
+        <th scope="col">Condition</th>
+        <th scope="col">Company Name</th> 
+    
+      </tr>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{ asset.id }}</th>
+        <td>{{ asset.serial_number }}</td>
+        <td>{{ asset.asset_type }}</td>
+        <td>{{ asset.condition }}</td>
+        <td>{{ asset.company }}</td>
+       
+      </tr>
+     
+    </tbody>
+  </table>
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends 'asset_tracking_app/base.html' %}
+{% load static %}
+{% block content %}
+<table class="table  table-striped ">
+    <thead class="bg-secondary">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Asset</th>
+        <th scope="col">Employee</th>
+        <th scope="col">Checkout Date</th>
+        <th scope="col">Return Date</th> 
+        <th scope="col">Checkout Condition</th> 
+        <th scope="col">Return Condition</th> 
+        <th scope="col">Action</th> 
+      </tr>
+    </thead>
+    <tbody>
+        {% for data in asset_logs %}
+        <tr>
+            <th scope="row">{{ data.id }}</th>
+            <td>{{ data.asset }}</td>
+            <td>{{ data.employee }}</td>
+            <td>{{ data.checkout_date }}</td>
+            <td>{{ data.return_date }}</td>
+            <td>{{ data.condition_on_checkout }}</td>
+            <td>{{ data.condition_on_return }}</td>
+            <td>
+                <!-- Action buttons -->
+                <a href="{% url 'asset_tracking_app:asset_log_list_update' data.id %}" class="btn btn-primary btn-sm">Edit</a>
+                <a href="{% url 'asset_tracking_app:asset_log_list_view' data.id %}" class="btn btn-info btn-sm">View</a>
+                <a href="{% url 'asset_tracking_app:asset_log_list_delete' data.id %}" class="btn btn-danger btn-sm">Delete</a>
+                <!-- Add more action buttons as needed -->
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

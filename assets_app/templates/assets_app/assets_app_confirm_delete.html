@@ -1,0 +1,10 @@
+{% extends 'asset_tracking_app/base.html' %}
+{% load static %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <br/>
+    <button type="submit" class="center">Delete</button>
+</form>
+{% endblock content %}
